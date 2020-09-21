@@ -40,7 +40,7 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login");
 });
 
-router.options(
+router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/profile",
@@ -49,7 +49,11 @@ router.options(
 );
 
 router.get("/profile", (req, res, next) => {
-  res.render("private/profile");
+  console.log(req.user);
+  if (!req.user) {
+    return res.redirect("/login");
+  }
+  res.render("private/profile", { user: req.user });
 });
 
 module.exports = router;

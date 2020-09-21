@@ -28,6 +28,8 @@ const debug = require("debug")(
 );
 
 const app = express();
+require("./configs/session-config")(app);
+require("./configs/passport-config")(app);
 
 // Middleware Setup
 app.use(logger("dev"));
