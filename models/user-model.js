@@ -4,14 +4,15 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     username: String,
-    email: String,
+    email: { type: String, unique: true },
     passwordHash: String,
+    entries: [{ type: Schema.Types.ObjectId, ref: "Entries" }],
   },
   {
     timestamps: true,
   }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("Users", userSchema);
 
 module.exports = User;

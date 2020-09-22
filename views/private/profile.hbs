@@ -1,2 +1,15 @@
-<h2>Logged</h2>
-<p>Welcome {{user.username}}</p>
+<h2>Profile page</h2>
+<p>Welcome, {{user.username}}</p>
+<p>e-mail: {{user.email}}</p>
+
+<p><a href="/logout">Logout</a></p>
+
+<a href="/profile/edit/{{user._id}}">EDIT</a>
+<a href="/profile/delete/{{user._id}}">DELETE</a>
+
+<div>
+  <a href="/entries/{{user._id}}">See all entries</a>
+</div>
+<div>
+  <a href="/entries/new">Add new entry</a>
+</div>
