@@ -4,11 +4,36 @@
 }
 
 .navbar {
-  background-color: #19473d;
+  background-color: #4b9c93;
   height: 5rem;
 }
 
+.navbar-brand {
+  max-height: 3.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 #navbarNavAltMarkup {
-  background-color: #19473d;
-  justify-items: center;
+  background-color: #4b9c93;
+}
+
+.firstPhrase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .firstPhrase {
+    padding: 3rem 4rem;
+  }
+}
+
+.carousel-inner img {
+  border-radius: 50%;
+  border-top-right-radius: 0;
 }
