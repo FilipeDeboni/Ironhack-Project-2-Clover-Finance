@@ -1,12 +1,12 @@
 const express = require("express");
-const router = express.Router();
 const passport = require("passport");
 
-const User = require("../models/user-model");
-
 const bcrypt = require("bcryptjs");
-
 const saltRounds = 10;
+
+const router = express.Router();
+
+const User = require("../models/user-model");
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -30,6 +30,7 @@ router.post("/signup", async (req, res, next) => {
     const passwordHash = bcrypt.hashSync(password, salt);
     // Create user in database
     User.create({ username, email, passwordHash });
+    res.redirect("/");
   } catch (err) {
     console.error(err);
     next(err);
@@ -37,7 +38,7 @@ router.post("/signup", async (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login");
+  res.render("auth/login", { errMsg: req.flash("error") });
 });
 
 router.post(
@@ -45,15 +46,14 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/login",
+    failureFlash: true
   })
 );
 
-router.get("/profile", (req, res, next) => {
-  console.log(req.user);
-  if (!req.user) {
-    return res.redirect("/login");
-  }
-  res.render("private/profile", { user: req.user });
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
+
 
 module.exports = router;

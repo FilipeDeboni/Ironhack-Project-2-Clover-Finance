@@ -8,6 +8,7 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const flash = require('connect-flash');
 
 mongoose
   .connect("mongodb://localhost/ironhack-project-2-clover-finance", {
@@ -36,6 +37,7 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash());
 
 // Express View engine setup
 app.use(
@@ -56,7 +58,14 @@ app.locals.title = "Clover";
 
 const index = require("./routes/index");
 app.use("/", index);
+
 const auth = require("./routes/auth-routes");
 app.use("/", auth);
+
+const profile = require("./routes/profile-routes");
+app.use('/profile', profile);
+
+const entries = require("./routes/entries-routes");
+app.use("/entries", entries);
 
 module.exports = app;
