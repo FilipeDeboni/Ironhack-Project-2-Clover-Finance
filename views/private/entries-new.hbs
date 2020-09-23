@@ -1,0 +1,29 @@
+<div>
+  <h2>new entry</h2>
+  <form action="/entries/new" method="post">
+    <div>
+      <label for="amount">Amount</label>
+      <input type="number" min="0" step="any" name="amount" placeholder="0.00" />
+
+      <label for="date">Date</label>
+      <input type="date" name="date" />
+    </div>
+    <div>
+      <div>
+        <fieldset>
+          <legend>Description</legend>
+          <textarea name="description" rows="3"></textarea>
+        </fieldset>
+        <div>
+          <label for="category">Category</label>
+          <select name="category">
+            {{#each categories}}
+            <option value="{{name}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+    <button type="submit">ADD</button>
+  </form>
+</div>
