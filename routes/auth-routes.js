@@ -7,6 +7,24 @@ const saltRounds = 10;
 const router = express.Router();
 
 const User = require("../models/user-model");
+const Categories = require("../models/category-model");
+
+function createFirstCategories(userId) {
+  const essentials = ["Rent / Mortgage", "Groceries", "Basic Utilities", "Transport", "Education", "Health"];
+  const lifestyles = ["Restaurant", "Clothing", "Streaming Service", "Electronics / Gadgets", "Selfcare", "Hobby", "Vacation", "Donation"];
+  const priorities = ["Emergency Fund", "Bank Savings"]
+  const initialCategories = [];
+  essentials.forEach(item => {
+    initialCategories.push({ userId, name: item, tag: "Essential" })
+  });
+  lifestyles.forEach(item => {
+    initialCategories.push({ userId, name: item, tag: "Life Style" })
+  });
+  priorities.forEach(item => {
+    initialCategories.push({ userId, name: item, tag: "Priority" })
+  });
+  return initialCategories;
+}
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -29,7 +47,11 @@ router.post("/signup", async (req, res, next) => {
     const salt = bcrypt.genSaltSync(saltRounds);
     const passwordHash = bcrypt.hashSync(password, salt);
     // Create user in database
-    User.create({ username, email, passwordHash });
+    const user = await User.create({ username, email, passwordHash });
+    // Create initial categories related to the new user
+    const categories = createFirstCategories(user._id);
+    categories.forEach(async item => await Categories.create(item));
+    console.log("CREATED USER:", user._id);
     res.redirect("/");
   } catch (err) {
     console.error(err);
