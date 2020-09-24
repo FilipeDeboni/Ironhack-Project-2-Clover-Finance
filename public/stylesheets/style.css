@@ -1,11 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Baloo Tammudu 2", cursive;
+}
+
+body {
+  min-height: 100vh;
 }
 
 .navbar {
   background-color: #4b9c93;
   height: 5rem;
+  font-size: 1.3rem;
 }
 
 .navbar-brand {
@@ -17,7 +23,7 @@ a {
   color: white;
 }
 
-#navbarNavAltMarkup {
+.sidenav {
   background-color: #4b9c93;
 }
 
@@ -27,13 +33,103 @@ a {
   align-items: center;
 }
 
-@media (max-width: 767px) {
-  .firstPhrase {
-    padding: 3rem 4rem;
+.roundedImage {
+  border-radius: 50%;
+  border-top-right-radius: 0;
+  width: 100%;
+}
+
+.page-footer {
+  bottom: 0;
+  width: 100%;
+}
+
+.SignUpOrLogInForm {
+  display: flex;
+  justify-content: center;
+}
+
+.SignUpOrLogInItems {
+  max-width: 90;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.SignUpOrLogInItems input {
+  width: 100%;
+}
+
+@media (orientation: portrait) {
+  .SignUpOrLogInForm {
+    padding: 2rem 0 2rem;
+    font-size: 1.1rem;
   }
 }
 
-.carousel-inner img {
-  border-radius: 50%;
-  border-top-right-radius: 0;
+@media (orientation: landscape) {
+  .SignUpOrLogInForm {
+    padding-top: 8rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .firstPhrase {
+    padding: 3rem 4rem;
+    font-size: 1.3rem;
+  }
+  .contactUs {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-height: 400px) {
+  .roundedImage {
+    float: right;
+    max-width: 600px;
+    max-height: 600px;
+  }
+  .firstPhrase p {
+    max-width: 20rem;
+    font-size: 1.4rem;
+  }
+  .card-title {
+    font-size: 1.3rem;
+  }
+  .card-text {
+    font-size: 1.1rem;
+  }
+  .contactUs {
+    width: 50%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-height: 770px) and (orientation: landscape) {
+  .roundedImage {
+    float: right;
+    max-width: 750px;
+    max-height: 750px;
+  }
+  .firstPhrase p {
+    max-width: 25rem;
+    font-size: 1.7rem;
+  }
+  .card-title {
+    font-size: 1.4rem;
+  }
+  .card-text {
+    font-size: 1.1rem;
+  }
+  .contactUs {
+    width: 50%;
+    font-size: 1.3rem;
+  }
+  .form {
+    max-width: 50%;
+  }
+  .SignUpOrLogInForm {
+    padding: 10rem 2rem;
+    font-size: 1.3rem;
+  }
 }
