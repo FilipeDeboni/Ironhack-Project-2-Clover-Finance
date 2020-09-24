@@ -1,51 +1,62 @@
-<h2>Profile page</h2>
-<p>Welcome, {{user.username}}</p>
-<p>e-mail: {{user.email}}</p>
+<div class="privatePages row">
 
-<div>
-  <h3>Totals:</h3>
-  <p>Income: {{income}}</p>
-  <p>Essential: {{essential}}</p>
-  <p>Life Style: {{lifestyle}}</p>
-  <p>Priority: {{priority}}</p>
+  <div class="col-sm-12 col-md-6">
+    <h2>Hello, <span class="userName">{{user.username}}</span></h2>
+    <h5>Welcome to your Profile page</h5>
+    <a class="text.primary" href="/logout">Logout</a><br>
+    <a href="/profile/edit/{{user._id}}">Edit Profile</a><br>
+    <a href="/profile/delete/{{user._id}}">Delete Profile</a>
+
+    <div>
+      <h4 class="mt-5">Here your totals:</h4>
+      <p class="GroupList">Income: {{income}}</p>
+      <ul>
+        <li class="GroupList">Essential: {{essential}}</li>
+        <li class="GroupList">Life Style: {{lifestyle}}</li>
+        <li class="GroupList">Priority: {{priority}}</li>
+      </ul> 
+   </div>
+
+
+      <h4 class="mt-5">Here your entries information:</h4>
+    <div>
+      <a href="/entries">See all entries</a>
+    </div>
+    <div>
+      <button class="btn btn-outline-primary rounded-pill px-4 m-2 mb-5" type="button"><a href="/entries/new">Add new entry</a>
+    </div>
+  </div>
+  
+  <div class="categoriesList col-sm-12 col-md-6">
+    <h4>Here your categories:</h4>
+    <p class="px-3">When you create an expense entry, we will group it into <i>categories</i> to help you control your budget.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Categories</th>
+          <th>Group</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+        {{#with categories}}
+        {{#each this}}
+        <tr>
+          <td>{{name}}</td>
+          <td> {{tag}}</td>
+          <td>
+            <a href="/categories/edit/{{this._id}}">Edit</a>
+            <a href="/categories/delete/{{this._id}}">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+        {{/with}}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"><a href="/categories/new">Add custom category</a></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  
 </div>
-
-<p><a href="/logout">Logout</a></p>
-
-<a href="/profile/edit/{{user._id}}">EDIT</a>
-<a href="/profile/delete/{{user._id}}">DELETE</a>
-
-<div>
-  <a href="/entries">See all entries</a>
-</div>
-<div>
-  <a href="/entries/new">Add new entry</a>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Role</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#with categories}}
-    {{#each this}}
-    <tr>
-      <td>{{name}}</td>
-      <td> --> {{tag}}</td>
-      <td>
-        <a href="/categories/edit/{{this._id}}">EDIT</a>
-        <a href="/categories/delete/{{this._id}}">DELETE</a>
-      </td>
-    </tr>
-    {{/each}}
-    {{/with}}
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3"><a href="/categories/new">ADD CATEGORY</a></td>
-    </tr>
-  </tfoot>
-</table>

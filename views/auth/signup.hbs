@@ -1,26 +1,31 @@
-<h2>Sign up</h2>
-<form action="/signup" method="POST">
-  <div>
-    <label for="username">Name</label>
-    <input type="text" name="username"/>
+<div class="row px-2 pb-5">
+  <div class="SignUpOrLogInForm col-sm-12 col-md-6">
+    <form action ="/signup" method="POST">
+    <h2>Sign up</h2>
+      <div class="SignUpOrLogInItems">
+        <label for="username">Name</label>
+        <input type="text" name="username"/>
+      </div>
+      <div class="SignUpOrLogInItems">
+        <label for="email">e-mail</label>
+        <input type="email" name="email"/>
+      </div>
+      <div class="SignUpOrLogInItems">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+      </div>
+      {{#if errMsg}}
+      <div class="errMsg">{{errMsg}}</div>
+      {{/if}}
+      <div class="SignUpOrLogInItems">
+        <button class="rounded-pill py-1 px-3" type="submit">CREATE ACCOUNT</button>
+      </div>
+    </form>
   </div>
-  <div>
-    <label for="email">e-mail</label>
-    <input type="email" name="email"/>
+
+  <div class="col-sm-12 col-md-6">
+    <img src="/images/CarouselPic2.jpg" alt="a smiling black woman and an Asian woman analysing a laptop screen" class="roundedImage d-block w-100">
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password">
-  </div>
-  {{#if errMsg}}
-  <div>
-    {{errMsg}}
-  </div>
-  {{/if}}
-  <div>
-    <button type="submit">
-      CREATE ACCOUNT
-    </button>
-  </div>
-</form>
+
+</div>
 
