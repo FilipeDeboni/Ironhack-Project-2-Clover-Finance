@@ -1,23 +1,23 @@
 
 <div class="row px-2">
 
-  <div class="firstPhrase text-center col-sm-12 col-md-4" style="font-size:1.4rem">
+  <div class="firstPhrase text-center col-sm-12 col-md-5">
       <p>Stop living paycheck-to-paycheck and turn your financial goals in reality with <strong>Clover</strong>
       </p>
   </div>
     
   
   {{!-- Carousel --}}
-  <div id="carouselExampleSlidesOnly" class="carousel slide col-sm-12 col-md-8" data-ride="carousel">
+  <div class="carousel slide col-sm-12 col-md-7" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="/images/CarouselPic1.jpg" alt="a black woman looking at the laptop">
+        <img class="roundedImage d-block w-100" src="/images/CarouselPic1.jpg" alt="a black woman looking at the laptop">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/images/CarouselPic2.jpg" alt="a smiling black woman and an Asian woman analysing a laptop screen">
+        <img class="roundedImage d-block w-100" src="/images/CarouselPic2.jpg" alt="a smiling black woman and an Asian woman analysing a laptop screen">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/images/CarouselPic3.jpg" alt="a man sitting relaxed on the couch using the computer">
+        <img class="roundedImage d-block w-100" src="/images/CarouselPic3.jpg" alt="a man sitting relaxed on the couch using the computer">
       </div>
     </div>
   </div>
@@ -27,32 +27,32 @@
 </div>
 
 {{!-- Cards --}}
-<div class="row text-center my-5">
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3" style="width: 18rem">
-    <div class="card card-body">
-      <h5 class="card-title">About Clover</h5>
+<div class="row text-center m-3 my-5">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2">
+    <div class="card card-body m-1 h-100">
+      <h5 class="card-title">The 50/30/20 rule</h5>
       <p class="card-text">Clover is based in the "50/30/20 budget rule", an easy-to-follow budgeting plan, because having a plan allows you to cover your expenses, doing the activities that make you happy.</p>
       </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3" style="width: 18rem">
-    <div class="card card-body">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2">
+    <div class="card card-body m-1 h-100">
       <h5 class="card-title">50% Essentials</h5>
       <p class="card-text "> Essentials are those bills that you absolutely must pay and are the things really necessary. These include rent, car payments, groceries, utilities, internet, insurance and health care.
     </p>
       </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3" style="width: 18rem">
-    <div class="card card-body">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2">
+    <div class="card card-body m-1 h-100">
       <h5 class="card-title">30% Life Style</h5>
       <p class="card-text">Life Style represents the things you spend money on that are not absolutely essential, but make your life better. This includes dinner, movies out, a streaming service and vacations.
       </p>
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3" style="width: 18rem">
-    <div class="card card-body">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2">
+    <div class="card card-body m-1 h-100">
       <h5 class="card-title">20% Priorities</h5>
       <p class="card-text">Try to allocate 20% of your net income to savings and investments just when you receive the money. This includes adding money to an emergency fund or a bank savings account and the stock market.</p>
     </div>
@@ -61,27 +61,32 @@
 
 
 {{!-- Form --}}
-<form>
-    <div class="form-group">
-    <label for="exampleInputString1">Name</label>
-    <input type="string" class="form-control" id="exampleInputString1" placeholder="Name">
+<div class="row m-3">
+  {{!-- Inserir o texto de fale conosco --}}
+  <div class="contactUs text-center col-sm-12 col-md-6 p-4">
+    <h3>Get in Touch</h3>
+    <p>Have any question? We'd love to hear from you.</p>
   </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputMessage1">Message</label>
-    <textarea rows="3" type="string" class="form-control" id="exampleInputMessage1" placeholder="Message"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
-
-<div class="col-md-6 mb-3">
-      <label for="validationServer03">City</label>
-      <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
+  <div class="form col-sm-12 col-md-6 p-3">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputString1">Name</label>
+        <input type="string" class="form-control" id="exampleInputString1" placeholder="Name">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputMessage1">Message</label>
+        <textarea rows="3" type="string" class="form-control" id="exampleInputMessage1" placeholder="Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form> 
+  </div>
+</div>
+
+
+
+
