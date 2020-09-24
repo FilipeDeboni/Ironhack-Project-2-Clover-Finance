@@ -1,16 +1,29 @@
-<form action ="/login" method="POST">
-<div>
-  <label for="email">E-mail</label>
-  <input type="email" name="email"/>
+<div class="row px-2 pb-5">
+  <div class="SignUpOrLogInForm col-sm-12 col-md-6">
+    <form action ="/login" method="POST">
+      <div class="SignUpOrLogInItems">
+        <label for="email">E-mail</label>
+        <input type="email" name="email"/>
+      </div>
+      <div class="SignUpOrLogInItems">
+        <label for="password">Password</label>
+        <input type="password" name="password"/>
+      </div>
+      {{#if errMsg}}
+      <div class="errMsg">{{errMsg}}</div>
+      {{/if}}
+      <div class="SignUpOrLogInItems">
+        <button class="rounded-pill py-1 px-3" type="submit">LOG IN</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <img src="/images/CarouselPic1.jpg" alt="a black woman looking at the laptop" class="roundedImage d-block w-100">
+  </div>
+
 </div>
-<div>
-   <label for="password">Password</label>
-  <input type="password" name="password"/>
-</div>
-{{#if errMsg}}
-<div class="errMsg">{{errMsg}}</div>
-{{/if}}
-<div>
-  <button type="submit">LOG IN</button>
-</div>
-</form>
+
+
+
+
