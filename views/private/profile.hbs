@@ -2,14 +2,50 @@
 <p>Welcome, {{user.username}}</p>
 <p>e-mail: {{user.email}}</p>
 
+<div>
+  <h3>Totals:</h3>
+  <p>Income: {{income}}</p>
+  <p>Essential: {{essential}}</p>
+  <p>Life Style: {{lifestyle}}</p>
+  <p>Priority: {{priority}}</p>
+</div>
+
 <p><a href="/logout">Logout</a></p>
 
 <a href="/profile/edit/{{user._id}}">EDIT</a>
 <a href="/profile/delete/{{user._id}}">DELETE</a>
 
 <div>
-  <a href="/entries/{{user._id}}">See all entries</a>
+  <a href="/entries">See all entries</a>
 </div>
 <div>
   <a href="/entries/new">Add new entry</a>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#with categories}}
+    {{#each this}}
+    <tr>
+      <td>{{name}}</td>
+      <td> --> {{tag}}</td>
+      <td>
+        <a href="/categories/edit/{{this._id}}">EDIT</a>
+        <a href="/categories/delete/{{this._id}}">DELETE</a>
+      </td>
+    </tr>
+    {{/each}}
+    {{/with}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3"><a href="/categories/new">ADD CATEGORY</a></td>
+    </tr>
+  </tfoot>
+</table>

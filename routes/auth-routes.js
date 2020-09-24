@@ -10,10 +10,14 @@ const User = require("../models/user-model");
 const Categories = require("../models/category-model");
 
 function createFirstCategories(userId) {
+  const income = ["Wage"];
   const essentials = ["Rent / Mortgage", "Groceries", "Basic Utilities", "Transport", "Education", "Health"];
   const lifestyles = ["Restaurant", "Clothing", "Streaming Service", "Electronics / Gadgets", "Selfcare", "Hobby", "Vacation", "Donation"];
   const priorities = ["Emergency Fund", "Bank Savings"]
   const initialCategories = [];
+  income.forEach(item => {
+    initialCategories.push({ userId, name: item, tag: "Income" })
+  });
   essentials.forEach(item => {
     initialCategories.push({ userId, name: item, tag: "Essential" })
   });
@@ -52,7 +56,7 @@ router.post("/signup", async (req, res, next) => {
     const categories = createFirstCategories(user._id);
     categories.forEach(async item => await Categories.create(item));
     console.log("CREATED USER:", user._id);
-    res.redirect("/");
+    res.redirect("/login");
   } catch (err) {
     console.error(err);
     next(err);

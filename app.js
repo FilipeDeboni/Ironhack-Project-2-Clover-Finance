@@ -56,6 +56,8 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Clover";
 
+
+// .. routes
 const index = require("./routes/index");
 app.use("/", index);
 
@@ -63,9 +65,12 @@ const auth = require("./routes/auth-routes");
 app.use("/", auth);
 
 const profile = require("./routes/profile-routes");
-app.use('/profile', profile);
+app.use("/profile", profile);
 
 const entries = require("./routes/entries-routes");
 app.use("/entries", entries);
+
+const categories = require("./routes/categories-routes")
+app.use("/categories", categories);
 
 module.exports = app;
