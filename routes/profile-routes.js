@@ -7,12 +7,33 @@ const saltRounds = 10;
 const router = express.Router();
 
 const User = require("../models/user-model");
+const Category = require("../models/category-model");
+const Entry = require("../models/entry-model");
 
-router.get("/", (req, res, next) => {
+function getTotalAmount(objArr, tagStr) {
+  return Object.values(objArr)
+    .filter(({ categoryId }) => categoryId.tag === tagStr)
+    .reduce((acc, { amount }) => acc + amount, 0)
+    .toFixed(2);
+}
+
+router.get("/", async (req, res, next) => {
   if (!req.user) {
     return res.redirect("/login");
   }
-  res.render("private/profile", { user: req.user });
+  try {
+    const categories = await Category.find({ userId: req.user._id });
+    const entries = await Entry.find({ userId: req.user._id })
+      .populate("categoryId", "tag");
+    const income = getTotalAmount(entries, "Income");
+    const essential = getTotalAmount(entries, "Essential");
+    const lifestyle = getTotalAmount(entries, "Life Style");
+    const priority = getTotalAmount(entries, "Priority");
+    categories.sort((a, b) => (a.name > b.name) ? 1 : (a.name < b.name) ? -1 : 0);
+    res.render("private/profile", { user: req.user, categories, income, essential, lifestyle, priority });
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get("/edit/:userId", async (req, res, next) => {
@@ -46,8 +67,11 @@ router.post("/edit/:userId", async (req, res, next) => {
 });
 
 router.get("/delete/:userId", async (req, res, next) => {
-  await User.findOneAndDelete({ _id: req.params.userId });
-  res.redirect("/");
-})
+  const { userId } = req.params;
+  await Category.deleteMany({ userId });
+  await Entry.deleteMany({ userId })
+  await User.findOneAndDelete({ _id: userId });
+  res.redirect("/logout");
+});
 
 module.exports = router;

@@ -2,9 +2,15 @@
 
 {{#each entries}}
 <div>
-  <p>{{category}}</p>
-  <p>{{amount}}</p>
-  <p>{{description}}</p>
-  <p>{{date}}</p>
+  <p>Amount: {{amount}}</p>
+  {{!--<p>Date: {{date}}</p>--}}
+  <p>Category: {{categoryId.name}}</p>
+  <p>Description: {{description}}</p>
+  <form action="/entries/edit/{{_id}}" method="GET">
+    <button type="submit">EDIT</button>
+  </form>
+  <form action="/entries/delete/{{_id}}" method="post">
+    <button type="submit">DELETE</button>
+  </form>
 </div>
 {{/each}}
