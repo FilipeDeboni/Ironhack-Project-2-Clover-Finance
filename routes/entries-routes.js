@@ -48,15 +48,17 @@ router.get("/", async (req, res, next) => {
     return res.redirect("/login");
   }
   try {
-    const entries = await Entry.find({ userId: req.user._id }).populate(
-      "categoryId",
-      "-_id -userId -__v"
-    );
+    const entriesFromDB = await Entry.find({ userId: req.user._id })
+      .populate("categoryId", "-_id -userId -__v");
+    const entries = Object.values(entriesFromDB).map((entry) => {
+      return { ...entry._doc, amount: entry._doc.amount.toFixed(2) };
+    });
     res.render("private/entries", { entries });
   } catch (err) {
     return next(err);
   }
 });
+
 
 // ... Update entries
 router.get("/edit/:entryId", async (req, res, next) => {
@@ -66,7 +68,7 @@ router.get("/edit/:entryId", async (req, res, next) => {
   }
   try {
     const categories = await Categories.find({ userId: req.user._id });
-    categories.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+    categories.sort((a, b) => (a.name > b.name) ? 1 : (a.name < b.name) ? -1 : 0);
     const entry = await Entry.findOne({ _id: entryId });
     res.render("private/entries-edit", { categories, entry });
   } catch (err) {
@@ -93,7 +95,7 @@ router.post("/edit/:entryId", async (req, res, next) => {
 });
 
 // ... Delete entries
-router.get("/delete/:entryId", async (req, res, next) => {
+router.post("/delete/:entryId", async (req, res, next) => {
   const { entryId } = req.params;
   await Entry.findOneAndDelete({ _id: entryId });
   res.redirect("/entries");

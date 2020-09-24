@@ -14,23 +14,31 @@
 
 <body>
 
-{{!-- Navbar --}}
-<nav class="navbar navbar-expand-sm navbar-dark d-flex justify-content-between">
-  <img class="navbar-brand" src="/images/clover-logo.png"></img>
+  {{!-- Navbar --}}
+  <nav class="navbar navbar-expand-sm navbar-dark d-flex justify-content-between">
+    <img class="navbar-brand" src="/images/clover-logo.png"></img>
 
-   <div>
-     {{!-- Button when small --}}
-      <button class="navbar-toggler background-color: #4b9c93" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active px-4 m-2" href="/">Home</a>
-      <button class="btn btn-sm btn-outline-light rounded-pill px-4 m-2" type="button"><a href="/login">Log in</a>
+    <div>
+      {{!-- Button when small --}}
+      <button class="navbar-toggler background-color: #4b9c93" type="button" data-toggle="collapse"
+        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <button class="btn btn-outline-light rounded-pill px-4 m-2" type="button">
-      <a href="/signup">Sign up</a>      </button>
-      </div>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active px-4 m-2" href="/">Home</a>
+          <button class="btn btn-sm btn-outline-light rounded-pill px-4 m-2" type="button"><a href="/login">Log in</a>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link active m-2" href="/">Home</a>
+              <button class="btn btn-sm btn-outline-light rounded-pill px-4 m-2" type="button"><a href="/login">Log
+                  in</a>
+              </button>
+              <button class="btn btn-outline-light rounded-pill px-4 m-2" type="button">
+                <a href="/signup">Sign up</a> </button>
+            </div>
 
   </nav>
 
@@ -40,16 +48,16 @@
 
   </div>
 
-{{!-- Padding to correct Footer space in all pages --}}
-<div class="p-4">
-</div>
-{{!-- Footer --}}
-    <footer class="page-footer font-small bg-secondary pt-2 bottom:0 position-fixed">
-      <div class="footer-copyright text-center py-3">Created at Ironhack by
-        <a target="blank" href="https://www.linkedin.com/in/filipedeboni/"> Filipe Deboni</a> and 
-        <a target="blank" href="https://www.linkedin.com/in/daniel-k-albanez/"> Daniel Albanez</a>
-      </div>
-    </footer>
+  {{!-- Padding to correct Footer space in all pages --}}
+  <div class="p-4">
+  </div>
+  {{!-- Footer --}}
+  <footer class="page-footer font-small bg-secondary pt-2 bottom:0 position-fixed">
+    <div class="footer-copyright text-center py-3">Created at Ironhack by
+      <a target="blank" href="https://www.linkedin.com/in/filipedeboni/"> Filipe Deboni</a> and
+      <a target="blank" href="https://www.linkedin.com/in/daniel-k-albanez/"> Daniel Albanez</a>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
