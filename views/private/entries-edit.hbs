@@ -1,8 +1,8 @@
-<div>
-  <h2>edit entry</h2>
+<div class="privatePages col-xs-12 col-md-6">
+  <h2>Edit single entry</h2>
   <form action="/entries/edit/{{entry._id}}" method="POST">
     <div>
-      <label for="amount">Amount</label>
+      <label for="amount">Value</label>
       <input name="amount" type="number" min="0.00" step="any" placeholder="0.00" value="{{entry.amount}}" />
 
       {{!--<label for="date">Date</label>
@@ -10,10 +10,8 @@
     </div>
     <div>
       <div>
-        <fieldset>
-          <legend>Description</legend>
-          <textarea name="description" rows="3">{{entry.description}}</textarea>
-        </fieldset>
+        <label for="description">Description</label>
+        <textarea name="description" rows="3">{{entry.description}}</textarea>
         <div>
           <label for="category">Category</label>
           <select name="category">
@@ -25,6 +23,6 @@
         </div>
       </div>
     </div>
-    <button type="submit">EDIT</button>
+    <button class="btn btn-secondary rounded-pill py-1 px-3" type="submit">Edit</button>
   </form>
 </div>

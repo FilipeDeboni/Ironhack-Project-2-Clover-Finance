@@ -1,6 +1,6 @@
 <div class="privatePages row">
 
-  <div class="col-sm-12 col-md-6">
+  <div class="col-xs-12 col-md-6">
     <h2>Hello, <span class="userName">{{user.username}}</span></h2>
     <h5>Welcome to your Profile page</h5>
     <a class="text.primary" href="/logout">Logout</a><br>
@@ -27,14 +27,16 @@
     </div>
   </div>
   
-  <div class="categoriesList col-sm-12 col-md-6">
+  <div class="categoriesList col-xs-12 col-md-6">
     <h4>Here your categories:</h4>
     <p class="px-3">When you create an expense entry, we will group it into <i>categories</i> to help you control your budget.</p>
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>Categories</th>
           <th>Group</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -45,15 +47,16 @@
           <td> {{tag}}</td>
           <td>
             <a href="/categories/edit/{{this._id}}">Edit</a>
-            <a href="/categories/delete/{{this._id}}">Delete</a>
+            
           </td>
+          <td><a href="/categories/delete/{{this._id}}">Delete</a></td>
         </tr>
         {{/each}}
         {{/with}}
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3"><a href="/categories/new">Add custom category</a></td>
+          <td colspan="4"><a href="/categories/new">Add custom category</a></td>
         </tr>
       </tfoot>
     </table>

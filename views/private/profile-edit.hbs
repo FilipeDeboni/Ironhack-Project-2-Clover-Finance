@@ -1,13 +1,15 @@
-<div>
+<div class="privatePages SignUpOrLogInItems">
   <form action="/profile/edit/{{user._id}}" method="POST">
     <div>
       <label for="username">Name</label>
       <input type="text" name="username" value="{{user.username}}" />
     </div>
+    <br>
     <div>
       <label for="email">e-mail</label>
       <input type="email" name="email" value="{{user.email}}" />
     </div>
+    <br>
     <div>
       <label for="password">Password</label>
       <input type="password" name="password" />
@@ -17,8 +19,9 @@
       {{errMsg}}
     </div>
     {{/if}}
+    <br>
     <div>
-      <button type="submit">SAVE CHANGES</button>
+      <button class="btn btn-secondary rounded-pill py-1 px-3" type="submit">Save Changes</button>
     </div>
   </form>
 </div>
