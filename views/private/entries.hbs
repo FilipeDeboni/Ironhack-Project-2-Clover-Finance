@@ -1,16 +1,35 @@
-<h2>Entries</h2>
-
-{{#each entries}}
-<div>
-  <p>Amount: {{amount}}</p>
-  {{!--<p>Date: {{date}}</p>--}}
-  <p>Category: {{categoryId.name}}</p>
-  <p>Description: {{description}}</p>
-  <form action="/entries/edit/{{_id}}" method="GET">
-    <button type="submit">EDIT</button>
-  </form>
-  <form action="/entries/delete/{{_id}}" method="post">
-    <button type="submit">DELETE</button>
-  </form>
+<div class="privatePages">
+  <button class="btn btn-outline-primary rounded-pill" type="button"><a href="/entries/new">Add new entry</a></button>
 </div>
-{{/each}}
+
+<div class="col-sm-12 col-md-12">
+  
+  <h2>All entries:</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Value</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each entries}}
+      <tr>
+        <td><p>{{amount}}</p></td>
+        <td><p>{{categoryId.name}}</p></td>
+        <td><p>{{description}}</p></td>
+        <td><form action="/entries/edit/{{_id}}" method="GET">
+        <button class="btn btn-sm" type="submit">Edit</button></td>
+        <td><form action="/entries/delete/{{_id}}" method="post">
+        <button class="btn btn-sm" type="submit">Delete</button></td>
+
+
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
