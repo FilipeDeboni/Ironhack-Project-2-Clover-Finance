@@ -8,10 +8,10 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-const flash = require('connect-flash');
+const flash = require("connect-flash");
 
 mongoose
-  .connect("mongodb://localhost/ironhack-project-2-clover-finance", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
   })
   .then((x) => {
@@ -56,7 +56,6 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Clover";
 
-
 // .. routes
 const index = require("./routes/index");
 app.use("/", index);
@@ -70,7 +69,7 @@ app.use("/profile", profile);
 const entries = require("./routes/entries-routes");
 app.use("/entries", entries);
 
-const categories = require("./routes/categories-routes")
+const categories = require("./routes/categories-routes");
 app.use("/categories", categories);
 
 module.exports = app;

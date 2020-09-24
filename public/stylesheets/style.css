@@ -18,7 +18,8 @@ body {
   max-height: 3.5rem;
 }
 
-a {
+.navbar a,
+footer a {
   text-decoration: none;
   color: white;
 }
@@ -59,16 +60,29 @@ a {
   width: 100%;
 }
 
+.privatePages {
+  padding: 4rem;
+}
+
+.GroupList {
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.categoriesList {
+  font-size: 1.1rem;
+}
+
 @media (orientation: portrait) {
   .SignUpOrLogInForm {
-    padding: 2rem 0 2rem;
+    padding: 3rem 0 2rem;
     font-size: 1.1rem;
   }
 }
 
 @media (orientation: landscape) {
   .SignUpOrLogInForm {
-    padding-top: 8rem;
+    padding-top: 4rem;
     font-size: 1.2rem;
   }
 }
@@ -129,7 +143,12 @@ a {
     max-width: 50%;
   }
   .SignUpOrLogInForm {
-    padding: 10rem 2rem;
+    padding: 7rem 2rem;
     font-size: 1.3rem;
   }
+}
+
+.userName {
+  color: #4b9c93;
+  font-size: 2.4rem;
 }
