@@ -1,18 +1,18 @@
 <div>
-  <h2>new entry</h2>
-  <form action="/entries/new" method="post">
+  <h2>edit entry</h2>
+  <form action="/entries/edit/{{entry._id}}" method="POST">
     <div>
       <label for="amount">Amount</label>
-      <input name="amount" type="number" min="0.00" step="any" placeholder="0.00" style="text-align:right" />
+      <input name="amount" type="number" min="0.00" step="any" placeholder="0.00" value="{{entry.amount}}" />
 
       {{!--<label for="date">Date</label>
-      <input type="date" name="date" />--}}
+      <input type="date" name="date" value="{{entry.date}}" />--}}
     </div>
     <div>
       <div>
         <fieldset>
           <legend>Description</legend>
-          <textarea name="description" rows="3"></textarea>
+          <textarea name="description" rows="3">{{entry.description}}</textarea>
         </fieldset>
         <div>
           <label for="category">Category</label>
@@ -25,6 +25,6 @@
         </div>
       </div>
     </div>
-    <button type="submit">ADD</button>
+    <button type="submit">EDIT</button>
   </form>
 </div>
