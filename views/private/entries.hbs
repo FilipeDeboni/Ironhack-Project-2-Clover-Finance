@@ -1,9 +1,10 @@
 <div class="privatePages">
+  {{log entries}}
   <button class="btn btn-outline-primary rounded-pill" type="button"><a href="/entries/new">Add new entry</a></button>
 </div>
 
 <div class="col-sm-12 col-md-12">
-  
+
   <h2>All entries:</h2>
   <table class="table">
     <thead>
@@ -19,15 +20,25 @@
     <tbody>
       {{#each entries}}
       <tr>
-        <td><p>{{amount}}</p></td>
-        <td><p>{{categoryId.name}}</p></td>
-        <td><p>{{description}}</p></td>
-        <td><form action="/entries/edit/{{_id}}" method="GET">
-        <button class="btn btn-sm" type="submit">Edit</button></td>
-        <td><form action="/entries/delete/{{_id}}" method="post">
-        <button class="btn btn-sm" type="submit">Delete</button></td>
-
-
+        <td>
+          <p>{{amount}}</p>
+        </td>
+        <td>
+          <p>{{categoryId.name}}</p>
+        </td>
+        <td>
+          <p>{{description}}</p>
+        </td>
+        <td>
+          <form action="/entries/edit/{{_id}}" method="GET">
+            <button class="btn btn-sm" type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="/entries/delete/{{_id}}" method="post">
+            <button class="btn btn-sm" type="submit">Delete</button>
+          </form>
+        </td>
       </tr>
       {{/each}}
     </tbody>
