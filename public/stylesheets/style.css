@@ -10,8 +10,27 @@ body {
 
 .navbar {
   background-color: #4b9c93;
-  height: 5rem;
+  height: 65px;
   font-size: 1.3rem;
+}
+
+.navbar > img {
+  margin-top: -5px;
+}
+
+.home-buttom {
+  padding: 12px 10px 0 10px;
+  margin: 0 5px;
+}
+
+.nav-buttom {
+  padding: 5px 10px 0 10px;
+  margin: 0 5px;
+}
+
+.nav-buttom:hover {
+  background-color: white;
+  color: black;
 }
 
 .navbar-brand {
@@ -71,6 +90,10 @@ footer a {
 
 .categoriesList {
   font-size: 1.1rem;
+}
+
+.footer-copyright {
+  height: 45px;
 }
 
 @media (orientation: portrait) {
