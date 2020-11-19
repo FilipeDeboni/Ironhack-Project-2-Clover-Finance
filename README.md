@@ -1,4 +1,4 @@
-# Clover: Personal Finance Control
+# Clover: personal finance control
 
 You can access Clover here: https://clover-budget.herokuapp.com/
 
